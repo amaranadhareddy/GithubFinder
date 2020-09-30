@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#name {
+  width: 50px;
+  border-radius: 100vh;
+  height: 50px;
+  margin-top: 50px;
+  font-size: 20px;
+  padding: 10px;
+  transition: width 1s;
+  background-color: #4c2885;
+  color: white;
+  font-family: inherit;
+  border: none;
+}
+
+#name:focus {
+  outline: none;
+}
+#name::placeholder {
+  color: #bbb;
+}
+
+#name.selected {
+  width: 400px;
+  padding-left: 50px;
+  cursor: text;
+}
+
+.search-icon {
+  width: 35px;
+  cursor: pointer;
+  margin: 60px 0px 0 8px;
+  position: absolute;
+}
+
+.bookmark {
+  width: 35px;
+
+  position: absolute;
+  color: white;
+  margin: 60px 0px 0 100px;
+}
+
+.bookmark.hide {
+  display: none;
+}
+
+.search-icon.selected {
+  cursor: default;
+}
+
+.search-hint {
+  visibility: hidden;
+}
+
+.search-hint.selected {
+  visibility: visible;
+  margin: 10px 0 20px 15px;
+  color: #bbb;
+  animation: search-hit-anim 2s forwards;
+}
+
+@keyframes search-hit-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.search::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  position: absolute;
+  border-radius: 50%;
+  margin-top: 50px;
+  animation: ripple 1s 3 forwards;
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  #name.selected {
+    width: 350px;
+  }
+}

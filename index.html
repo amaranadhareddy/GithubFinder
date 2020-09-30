@@ -5,22 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github Finder</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="search.css" />
   </head>
   <body>
-    <form id="form">
-      <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Search a Github User"
-        autocomplete="off"
-      />
-    </form>
-
+    <div class="search">
+      <img src="search.svg" alt="search" class="search-icon" />
+      <img src="bookmark.png" alt="bookmark" class="bookmark" />
+      <div>
+        <form id="form">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder=""
+            autocomplete="off"
+          />
+        </form>
+      </div>
+      <p class="search-hint">Hit enter to Search</p>
+    </div>
     <div class="profile-card"></div>
 
     <script src="github.js"></script>
     <script src="ui.js"></script>
-    <script src="app.js"></script>
+    <script src="search.js"></script>
+    <!-- <script src="app.js"></script> -->
   </body>
 </html>
