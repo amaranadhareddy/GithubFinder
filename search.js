@@ -112,16 +112,20 @@ document.addEventListener("click", (e) => {
       bookmarkObj.addBookmark();
     }
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    e.preventDefault();
   } else if (e.target.classList.contains("bookmark-header")) {
     ui.getBookMarks();
+    e.preventDefault();
   } else if (e.target.classList.contains("fav-name")) {
     searchText.value = e.target.getAttribute("userid");
     getUserdata(e);
+    e.preventDefault();
   } else if (e.target.classList.contains("remove")) {
     bookmarkObj.removeBookmark(
       e.target.previousElementSibling.getAttribute("userid")
     );
     ui.getBookMarks();
+    e.preventDefault();
   }
-  e.preventDefault();
+  
 });
