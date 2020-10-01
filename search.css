@@ -22,6 +22,7 @@ body {
   color: white;
   font-family: inherit;
   border: none;
+  z-index: 1;
 }
 
 #name:focus {
@@ -45,8 +46,6 @@ body {
 }
 
 .bookmark {
-  width: 35px;
-
   position: absolute;
   color: white;
   margin: 60px 0px 0 100px;

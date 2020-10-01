@@ -9,6 +9,13 @@ class UI {
 
   createCard(user) {
     this.card.classList.add("profile-card");
+    let bookMarkFaClass;
+    if (bookmarkObj.isBookMarked(user.login)) {
+      bookMarkFaClass = "fa-bookmark";
+    } else {
+      bookMarkFaClass = "fa-bookmark-o";
+    }
+    this.card.style.display = "flex";
     this.card.innerHTML = `
     <div class="profile-photo">
         <img
@@ -17,7 +24,11 @@ class UI {
         />
     </div>
     <div class="profile-info">
-        <h2 class="userName">${user.name}</h2>
+        <div class="header"><h2 class="userName">${user.name}</h2>
+        <a class="add-bookmark"><i class="fa ${bookMarkFaClass} fa-2x bookmark-fa"></i></a>
+            
+        </div>
+        
         <p class="bio">${user.bio}</p>
         <ul class="info">
           <li>${user.followers} <strong>Followers</strong></li>
@@ -72,6 +83,51 @@ class UI {
   }
 
   showLoader() {
+    this.card.style.display = "flex";
     this.card.innerHTML = `<img src="loading.gif" alt="loader">`;
+  }
+
+  changeBookmarkIcon(bookmarkIcon, bookmarked) {
+    if (bookmarked) {
+      bookmarkIcon.firstElementChild.classList.remove("fa-bookmark-o");
+      bookmarkIcon.firstElementChild.classList.add("fa-bookmark");
+    } else {
+      bookmarkIcon.firstElementChild.classList.remove("fa-bookmark");
+      bookmarkIcon.firstElementChild.classList.add("fa-bookmark-o");
+    }
+  }
+
+  getBookMarks() {
+    this.card.innerHTML = ``;
+    this.card.style.display = "none";
+    let favorites = document.querySelector(".favorites");
+    let favHtml = "";
+    if (bookmarkObj.checkBookmarks()) {
+      bookmarks.forEach((bookmark) => {
+        favHtml += `
+          <div class="favorite">
+            <img src="${bookmark.profilePhoto}?client_id=d9308aacf8b204d361fd&client_secret=84969aeef73956f4ec9e8716d1840532802bb81b" alt="brad" class="fav-photo">
+           <h3 class="fav-name" userId=${bookmark.userId}>${bookmark.name}</h3>
+            <i class='fa fa-remove fa-1.5x remove'></i>
+          
+          </div>
+          `;
+      });
+    } else {
+      favHtml += `
+          <div class="favorite">
+            
+           <h3 class="fav-name" style="margin:0 auto">No favorites</h3>
+            
+          
+          </div>
+          `;
+    }
+
+    favorites.innerHTML = favHtml;
+  }
+
+  clearFavorites() {
+    document.querySelector(".favorites").innerHTML = "";
   }
 }

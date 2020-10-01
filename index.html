@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github Finder</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="search.css" />
   </head>
   <body>
     <div class="search">
       <img src="search.svg" alt="search" class="search-icon" />
-      <img src="bookmark.png" alt="bookmark" class="bookmark" />
+      <a href="" class="bookmark"
+        ><i class="fa fa-bookmark fa-2x bookmark-header"></i
+      ></a>
+
       <div>
         <form id="form">
           <input
@@ -24,11 +33,14 @@
       </div>
       <p class="search-hint">Hit enter to Search</p>
     </div>
+
     <div class="profile-card"></div>
 
+    <div class="favorites"></div>
     <script src="github.js"></script>
+
+    <script src="bookMark.js"></script>
     <script src="ui.js"></script>
     <script src="search.js"></script>
-    <!-- <script src="app.js"></script> -->
   </body>
 </html>
