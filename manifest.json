@@ -3,7 +3,7 @@
 	"name": "Github Finder",
 	"lang": "en",
 	"description": "Search for your favorite Github profiles",
-	"start_url": "/",
+	"start_url": "/GithubFinder/",
 	"background_color": "#ffffff",
 	"theme_color": "#00aae7",
 	"dir": "ltr",
